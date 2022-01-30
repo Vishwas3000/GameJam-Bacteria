@@ -61,6 +61,9 @@ public class MainPlayerMovement : MonoBehaviour
     private bool knockBack = false;
 
     [SerializeField] private GameObject onDamagedEffect;
+    
+    [HideInInspector]
+    public bool isPlayerAlive = true;
 
     public void Awake()
     {
@@ -150,7 +153,7 @@ public class MainPlayerMovement : MonoBehaviour
         else
             DashBar.s_dashBar.SetFill(dashingTimeInterval / dashRegainTime);            //setting the dash fill
 
-        //if (!dashingNow || !knockBack)
+        if (isPlayerAlive)
         {
             Vector3 acceleration = Input.GetAxis("Vertical") * verticalAcceleration * transform.up
                                     + Input.GetAxis("Horizontal") * horizontalAcceleration * transform.right;
@@ -170,44 +173,52 @@ public class MainPlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        SetMovement();
-        SetRotation();
-
-        timeStamp = Time.timeSinceLevelLoad - timeSince;
-
-        if(timeStamp>bulletAutoRefillTime)                                          //Auto bullet over some time
+        if(isPlayerAlive)
         {
-            UpdateBullet(1);
+            SetMovement();
+            SetRotation();
 
-            timeSince = Time.timeSinceLevelLoad;
+            timeStamp = Time.timeSinceLevelLoad - timeSince;
+
+            if(timeStamp>bulletAutoRefillTime)                                          //Auto bullet over some time
+            {
+                UpdateBullet(1);
+
+                timeSince = Time.timeSinceLevelLoad;
+            }
+
         }
     }
 
     private void FixedUpdate()
     {
-        velocity = velocity * (1 - Time.deltaTime * velocityDrag);
+        if(isPlayerAlive)
+        {
+            velocity = velocity * (1 - Time.deltaTime * velocityDrag);
 
-        if (!dashingNow && !knockBack)
-        {
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
-        }
-        else
-        {
-            if(knockBack==true)
+            if (!dashingNow && !knockBack)
             {
-                StartCoroutine(time());
+                velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
             }
-        }
+            else
+            {
+                if(knockBack==true)
+                {
+                    StartCoroutine(time());
+                }
+            }
 
-        zRotationVelocity = zRotationVelocity * (1 - Time.deltaTime * rotationDrag);
+            zRotationVelocity = zRotationVelocity * (1 - Time.deltaTime * rotationDrag);
         
 
-        zRotationVelocity = Mathf.Clamp(zRotationVelocity, -maxRotationSpeed, maxRotationSpeed);
+            zRotationVelocity = Mathf.Clamp(zRotationVelocity, -maxRotationSpeed, maxRotationSpeed);
 
-        rb.velocity = velocity ;
-        rb.angularDrag = rigid_body_angulerDrag;
+            rb.velocity = velocity ;
+            rb.angularDrag = rigid_body_angulerDrag;
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotationValue, zRotationVelocity);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotationValue, zRotationVelocity);
+
+        }
     }
 
     IEnumerator time()
@@ -265,6 +276,9 @@ public class MainPlayerMovement : MonoBehaviour
 
         if(playerCurrentHealth<=0)
         {
+            isPlayerAlive = false;
+            PlayerGFX.instance.SpawnEffect();
+
             GameManager.gameManager.EndGame();
         }
 

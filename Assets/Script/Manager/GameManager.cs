@@ -33,14 +33,30 @@ public class GameManager : MonoBehaviour
 
         if(playerDead==true)
         {
-            Restart();
+            PlayerDead();
         }
+
+    }
+
+    public void PlayerDead()
+    {
+        if(GameOverScreen.instance==null)
+        {
+            Debug.Log("gameOverScreen is null");
+        }
+
+        GameOverScreen.instance.Setup();
 
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Level1");
         EnemyAI.EnemyRbs.Clear();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

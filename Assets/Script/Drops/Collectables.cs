@@ -6,8 +6,8 @@ public class Collectables : MonoBehaviour
 {
     [SerializeField]
     private int healPoint = 5,
-                bulletRefilPoint = 3,
-                DashPoint = 3;
+                bulletRefilPoint = 3;
+                //DashPoint = 3;
 
     public float dissapearTime = 6f;
 
@@ -42,7 +42,7 @@ public class Collectables : MonoBehaviour
         {
             MainPlayerMovement.MainPlayer.UpdateHealth(healPoint);
             MainPlayerMovement.MainPlayer.UpdateBullet(bulletRefilPoint);
-            //MainPlayerMovement.MainPlayer.
+
 
             AudioManager.instance.Play("PlayerCollected");
 

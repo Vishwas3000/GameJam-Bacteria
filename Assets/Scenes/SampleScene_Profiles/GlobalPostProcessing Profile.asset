@@ -1,33 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6272017205464570575
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 50
-  aperture:
-    overrideState: 1
-    value: 5
-  focalLength:
-    overrideState: 1
-    value: 158
-  kernelSize:
-    overrideState: 1
-    value: 1
 --- !u!114 &-3288506510325216498
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -50,7 +22,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.21
+    value: 0.304
   fastMode:
     overrideState: 1
     value: 0
@@ -81,10 +53,10 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.384
+    value: 0.405
   smoothness:
     overrideState: 1
-    value: 0.18
+    value: 0.222
   roundness:
     overrideState: 1
     value: 1
@@ -145,28 +117,6 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &-325102615064190674
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  shutterAngle:
-    overrideState: 1
-    value: 75
-  sampleCount:
-    overrideState: 1
-    value: 5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +131,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -1070627711503393435}
-  - {fileID: -6272017205464570575}
   - {fileID: -1646402035181592777}
   - {fileID: -3288506510325216498}
-  - {fileID: -325102615064190674}

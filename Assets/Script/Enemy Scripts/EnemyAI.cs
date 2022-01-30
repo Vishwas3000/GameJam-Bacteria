@@ -187,6 +187,11 @@ public class EnemyAI : MonoBehaviour
 
         velocity += repelForce * Time.fixedDeltaTime * repelAmount;
 
+
+        if(!MainPlayerMovement.MainPlayer.isPlayerAlive)
+        {
+            velocity = Vector2.zero;
+        }
     }
 
     IEnumerator KnockBack()

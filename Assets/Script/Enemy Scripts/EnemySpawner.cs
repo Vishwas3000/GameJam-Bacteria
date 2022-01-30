@@ -47,20 +47,24 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-
-        if(enemyCount <= currentWave.numberOfEnemies && nextSpawnTime < Time.time)
+        if(MainPlayerMovement.MainPlayer.isPlayerAlive)
         {
-            currentWave = waves[currentWaveNumber];
-            StartCoroutine(Spawner());
+            if(enemyCount <= currentWave.numberOfEnemies && nextSpawnTime < Time.time)
+            {
+                currentWave = waves[currentWaveNumber];
+                StartCoroutine(Spawner());
             
-            nextSpawnTime = Time.time + currentWave.spawnInterval;
+                nextSpawnTime = Time.time + currentWave.spawnInterval;
+
+            }
 
         }
+
     }
 
     IEnumerator Spawner()
     {
-        randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length - 1)];
+        randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
         
         Vector2 playerPos =  MainPlayerMovement.MainPlayer.transform.position;
 

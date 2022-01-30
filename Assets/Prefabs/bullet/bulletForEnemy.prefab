@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4284653221369224957}
   - component: {fileID: 6231729289503467364}
   - component: {fileID: 1890262344096100438}
-  - component: {fileID: 1274446710808819051}
+  - component: {fileID: 3471769782693374901}
   m_Layer: 0
   m_Name: bulletForEnemy
   m_TagString: Untagged
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743711964950371898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.464, y: -0.272, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.46174863, w: 0.8870109}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -55}
 --- !u!212 &4284653221369224957
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca0cab1354bc5b44c8c44f8f4b6c422b, type: 3}
-  m_Color: {r: 0.9716981, g: 0.49463755, b: 0.2878426, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7580089fe9197cb42ad161ab51052edd, type: 3}
+  m_Color: {r: 1, g: 0.8579407, b: 0.7962264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   bulletFadeRadious: 10
   bulletFadeTime: 3
   bulletDrag: 1
---- !u!60 &1274446710808819051
+--- !u!60 &3471769782693374901
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -151,16 +151,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.030608118, y: 0.30205622}
-      - {x: -0.03544131, y: 0.030018196}
-      - {x: -0.31528836, y: 0.025808804}
-      - {x: -0.315348, y: -0.03598456}
-      - {x: -0.0377717, y: -0.039145023}
-      - {x: -0.033832535, y: -0.31191626}
-      - {x: 0.0403011, y: -0.31461084}
-      - {x: 0.04611647, y: -0.03633967}
-      - {x: 0.31191626, y: -0.03305434}
-      - {x: 0.31191626, y: 0.031439126}
-      - {x: 0.044018984, y: 0.03255318}
-      - {x: 0.039221406, y: 0.030263871}
-      - {x: 0.032515272, y: 0.30824357}
+    - - {x: 0.071617626, y: 0.113959804}
+      - {x: 0.070720986, y: 0.31597486}
+      - {x: -0.07433299, y: 0.32024083}
+      - {x: -0.07879404, y: 0.048681274}
+      - {x: -0.31890592, y: -0.05265621}
+      - {x: -0.27146646, y: -0.18288364}
+      - {x: -0.084645696, y: -0.11840843}
+      - {x: -0.07504219, y: -0.3158646}
+      - {x: 0.07152238, y: -0.31645152}
+      - {x: 0.07509144, y: -0.046909526}
+      - {x: 0.3120575, y: 0.054667935}
+      - {x: 0.25743112, y: 0.18930951}

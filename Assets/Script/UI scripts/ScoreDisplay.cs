@@ -26,18 +26,15 @@ public class ScoreDisplay : MonoBehaviour
         scoreText.text = currScore.ToString();
         needUpdate = true;
         animator.enabled = true;
-        timeStamp = Time.time;
+        timeStamp = Time.time + timeLimit;
 
     }
 
     private void Update()
     {
-        timeStamp = Time.time + timeLimit;
 
         if(needUpdate)
         {
-            Debug.Log("timeStamp: " + timeStamp + " & time.time: " + Time.time);
-
             if(timeStamp < Time.time)
             {
                 needUpdate = false;
